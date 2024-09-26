@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import {Link} from 'react-router-dom'
 import {useSelector} from 'react-redux'
-import {RootState}  from '../../app/store'
+import {RootState}  from '../../redux/app/store'
 function Searchsuggest(props: any) {
   const posts: any = useSelector((state: RootState)=>state.HomePage.listPostSearch)
   var results = posts.map((post: any, index: number)=>{

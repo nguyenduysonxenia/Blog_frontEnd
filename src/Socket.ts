@@ -13,7 +13,6 @@ export const listenNotifycation = (socket:any)=>{
       let windows: any = window
       let currentUser =  windows.currentUser;
       let {post, authorComment, username} = data;
-      console.log(post,authorComment,currentUser)
       if(currentUser.id && post.authors_id.toString() == currentUser.id.toString()
        && authorComment.toString() != currentUser.id.toString()){
          console.log('hahah')

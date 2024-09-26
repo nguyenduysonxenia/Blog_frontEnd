@@ -45,7 +45,7 @@
 		}
 	}
 
-	>button {
+	>a {
 		font-size: 1em;
 		background: #3498db;
 		color: #fff;
@@ -63,6 +63,10 @@
 		}
 	}
 }
-.list_post_suggestions{
-
-}
+ @media only screen and(max-width: 767px){
+	 .search_post{
+		 &>a{
+        display:inline-block;
+		 }
+	 }
+ }

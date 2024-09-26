@@ -1,13 +1,14 @@
-import React from 'react'
+import React,{useState} from 'react'
 import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom'
 import './Search.scss'
 import Searchsuggest from './Searchsuggest'
-import {getListPostSearch} from '../../pages/home/HomeSlice'
+import {getListPostSearch} from '../../container/pages/home/HomeSlice'
 import {useDispatch} from 'react-redux'
-import postApi from '../../api/PostAPI'
+import postApi from '../../service/api/PostAPI'
 function Search(props: any) {
   const dispatch = useDispatch();
+  const [key,setKey] = useState('')
   const fetchPosts = async (params: string)=>{
     const response = await postApi.getListSearch(params)
       .catch((err: any)=>{
@@ -19,6 +20,7 @@ function Search(props: any) {
   const handleSearch = (e: any) =>{
       let query = e.target.value;
       fetchPosts(query)
+      setKey(query)
   }
   return (
       <div className="col-lg-12">
@@ -27,7 +29,7 @@ function Search(props: any) {
             <input autoComplete={'false'} onChange={handleSearch} name="keysearch" type="text" placeholder="Search"  />
             <Searchsuggest/>
           </div>
-          <button>Search</button>
+          <Link to={`/posts/${key}`}>Search</Link>
         </div>
 
       </div>

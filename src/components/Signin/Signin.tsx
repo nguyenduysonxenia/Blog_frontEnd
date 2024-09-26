@@ -4,12 +4,12 @@ import logo from '../../assets/images/logo.jpg';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import {Link} from 'react-router-dom'
-import userApi from '../../api/UserAPI'
+import userApi from '../../service/api/UserAPI'
 import {useHistory} from 'react-router-dom'
 import { toast } from 'react-toastify';
 import {useDispatch} from 'react-redux'
-import {setToken,checkToken} from '../../Authen'
-import {setCurrentUser} from '../../pages/user/UserSlice'
+import {setToken,checkToken} from '../../utils/Authen'
+import {setCurrentUser} from '../../container/pages/user/UserSlice'
 const Signin = () => {
   const history = useHistory();
   if(checkToken()){
@@ -40,7 +40,7 @@ const Signin = () => {
               if(response.admin){
                 return history.push('/admin')
               }
-              history.goBack();
+              history.push('/')
             }
         }
         catch(err: any){
@@ -89,10 +89,10 @@ const Signin = () => {
             )}
           </Form.Group>
           <Form.Group controlId="formBasicCheckbox">
-          <Link className="btn_forgot" to="/forgot">forgot Password?</Link>
+          <Link className="btn_forgot" to="/forgot">Forgot Password?</Link>
           </Form.Group>
           <Button variant="primary" type="submit" className="button">
-            Signin
+            Sign In
           </Button>
           <div className="link_register">
             <Link to="/signup">No account/Signup ?</Link>

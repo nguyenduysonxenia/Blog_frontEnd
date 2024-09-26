@@ -1,4 +1,4 @@
-import Post from '../../pages/home/components/Post'
+import Post from '../../container/pages/home/components/Post'
 
 const ListPost = () => {
     return(

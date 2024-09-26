@@ -3,11 +3,11 @@ import { Form, Button, Col, Image, Container } from 'react-bootstrap';
 import logo from '../../assets/images/logo.jpg';
 import { useFormik,Formik } from 'formik';
 import * as Yup from 'yup';
-import userApi from '../../api/UserAPI'
+import userApi from '../../service/api/UserAPI'
 import  { withRouter } from 'react-router-dom'
 import { toast } from 'react-toastify';
-import {removeToken} from '../../Authen'
-import {checkLogin} from '../../Authen'
+import {removeToken} from '../../utils/Authen'
+import {checkLogin} from '../../utils/Authen'
 const Signup = (props: any) => {
   const isLogin = checkLogin();
   if(isLogin){
@@ -119,7 +119,7 @@ const Signup = (props: any) => {
           </Form.Group>
 
           <Button variant="primary" type="submit" className="button">
-            Signup
+            Sign Up
           </Button>
         </Form>
       </Container>

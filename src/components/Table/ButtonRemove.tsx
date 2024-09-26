@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import {  toast } from 'react-toastify';
 import { confirmAlert } from 'react-confirm-alert'; // Import
 import 'react-confirm-alert/src/react-confirm-alert.css'
-import postApi from '../../api/PostAPI'
+import postApi from '../../service/api/PostAPI'
 import {useDispatch } from 'react-redux';
-import {removePost} from '../../pages/listPost/ListPostSlice'
+import {removePost} from '../../container/pages/listPost/ListPostSlice'
 function ButtonRemove(props: any) {
   const disPatch = useDispatch();
   const deletedPost  = async ()=>{

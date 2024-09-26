@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import postApi from '../../api/PostAPI'
+import postApi from '../../service/api/PostAPI'
 import ButtonRemove from './ButtonRemove'
 import './Table.scss';
 import {Link} from 'react-router-dom'
 import Pagination from '../Pagination/PaginationVip'
 import { useSelector,useDispatch } from 'react-redux';
-import {setPanigation,setListPost} from '../../pages/listPost/ListPostSlice'
+import {setPanigation,setListPost} from '../../container/pages/listPost/ListPostSlice'
 function Table(props: any) {
   const listPosts  = useSelector((state: any)=>state.ListPostPage.listPost)
   const pagination = useSelector((state: any)=>state.ListPostPage.pagination)

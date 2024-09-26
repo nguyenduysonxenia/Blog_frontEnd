@@ -2,12 +2,12 @@ import React,{useCallback, useEffect} from 'react';
 import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom'
 import './Header.scss';
-import apiUser from '../../api/UserAPI'
-import {setCurrentUser,logout} from '../../pages/user/UserSlice'
+import apiUser from '../../service/api/UserAPI'
+import {setCurrentUser,logout} from '../../container/pages/user/UserSlice'
 import {useDispatch,useSelector} from 'react-redux'
 import {listenNotifycation} from '../../Socket'
 import {SocketContext} from '../../Socket'
-import {removeToken} from '../../Authen'
+import {removeToken} from '../../utils/Authen'
 import {useLocation} from 'react-router-dom'
 function Header(props: any) {
 
@@ -85,7 +85,7 @@ function Header(props: any) {
                   ( <>
                     {currentUser.admin && <li className="nav-item">
                       <Link to="/admin" className="nav-link" href="#">
-                        DashBoard
+                        Dashboard
                       </Link>
                     </li>}
                     <li className="nav-item item_info_user">
